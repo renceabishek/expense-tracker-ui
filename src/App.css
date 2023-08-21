@@ -37,3 +37,28 @@ margin-bottom: 10px;
 .inputwdth{
   width: 226px;
 }
+
+.shades{
+  background: #f0fffb;
+  box-shadow: 10px 20px 10px #6971d5;
+}
+
+.login-background {
+  width: 1000px;
+  height: 100vh; /* Adjust the height as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('loginBg.png'); /* Replace with the actual path to your image */
+  background-size: cover;
+  background-position: center;
+}
+
+.usr-pwd
+{
+  position: relative;
+    bottom: 400px;
+    width: 60%;
+    border-radius: 10px;
+    background-color: rgb(122 173 237 / 80%);
+}

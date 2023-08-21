@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import  {apiservices} from './restservices/apiservices.ts';
+import VideoBackground from './VideoBackground.tsx';
 
 interface LoginProps {
   onformSwitch: (formType: string) => void;
@@ -22,7 +23,13 @@ export const Login: React.FC<LoginProps> = (props) => {
   //api.dologinsdkdsjg();
 
   return (
-    <div className="mycontainer">
+
+ <div >  
+
+  <div className="login-background"></div>
+
+
+    <div className="mycontainer shades usr-pwd">
     <form className="loginform" onSubmit={handleSubmit}>
       <label htmlFor="email" className="label-email">email : </label>
       <input
@@ -48,5 +55,6 @@ export const Login: React.FC<LoginProps> = (props) => {
       </button>
     </form>
     </div>
+    </div> 
   );
 };
