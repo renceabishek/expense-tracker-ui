@@ -1,4 +1,4 @@
 export class constant{
 
-    static appbaseurl="http://localhost:3000/";
+    static appbaseurl="http://localhost:8081/expensetracker";
 }
