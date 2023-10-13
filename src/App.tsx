@@ -1,25 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.scss";
+import Login from "./auth/Login";
+import Signup from "./auth/singup";
+import etHomeImage from "./assets/image/et-home.webp";
 
 function App() {
+  const [auth, setAuth] = useState("login");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button className="btn btn-danger">BootStrap Test Button</button>
-      </header>
+    <div className="et-flex et-flex-col et-md-flex-dir-row et-align-items-center min-height-100">
+      <div className="et-flex et-flex-item">
+        <img
+          src={etHomeImage}
+          alt="Home Page"
+          className="et-flex-item"
+          width={480}
+        />
+      </div>
+      <div className="et-flex-item et-flex et-justify-content-center">
+        {auth == "login" ? (
+          <Login />
+        ) : auth == "signup" ? (
+          <Signup />
+        ) : (
+          <Login />
+        )}
+      </div>
     </div>
   );
 }
