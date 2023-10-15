@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="et-flex et-flex-col et-md-flex-dir-row et-align-items-center min-height-100">
-      <div className="et-flex et-flex-item">
+      <div id ="loginImageId" className="et-flex et-flex-item">
         <img
           src={etHomeImage}
           alt="Home Page"
