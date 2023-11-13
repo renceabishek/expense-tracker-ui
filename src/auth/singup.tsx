@@ -1,16 +1,29 @@
 import React, { useState } from "react";
 import imgSignup from "../assets/image/signup.png";
+import axios from "axios";
+import Msg from "../constant";
 
 interface SignUpProps {
-  onToggle: (value: string) => void;
+  onToggle: (value: string, isSuccess: boolean, info: string) => void;
 }
 
 const Signup: React.FC<SignUpProps> = ({ onToggle }) => {
   const [email, setEmail] = useState("");
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
     // Implement signup logic here (e.g., make an API request to create a new user)
     // You should add validation and error handling as needed.
+
+    console.log("--email " + email);
+    await axios
+      .get("posts?_limit=10")
+      .then((response) => {
+        console.log(response.data);
+        onToggle("message", true, Msg.signup);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -51,7 +64,7 @@ const Signup: React.FC<SignUpProps> = ({ onToggle }) => {
         <button
           type="button"
           className="btn btn-link"
-          onClick={() => onToggle("login")}
+          onClick={() => onToggle("login", true, "")}
         >
           Log In
         </button>

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./App.scss";
 import AuthWrapper from "./auth/AuthWrapper";
 import Home from "./home/home";
+import axios from "axios";
 
 function App() {
+  axios.defaults.baseURL = "https://jsonplaceholder.typicode.com/";
   const [auth, setAuth] = useState("login");
 
   return (
