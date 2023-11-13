@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import "./Login.scss";
 import imgSignIn from "../assets/image/dummyGsignin.png";
 
-const Login: React.FC = () => {
+interface LoginProps {
+  onToggle: (value: string) => void;
+}
+
+const Login: React.FC<LoginProps> = ({ onToggle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,11 +16,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="et-flex et-flex-col et-align-items-center gap-10 auth-border">
-      <div className="et-flex-item">
-        <br />
-        <h2>Expense Tracker</h2> <br />
-      </div>
+    <div className="et-flex et-flex-col et-align-items-center gap-10">
       <div className="card-body et-flex-item">
         <form className="et-flex et-flex-col et-justify-content-space-between gap-10">
           <div className="form-group et-flex-item">
@@ -24,6 +24,7 @@ const Login: React.FC = () => {
               type="email"
               className="form-control"
               placeholder="Email"
+              autoComplete="off"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -52,15 +53,28 @@ const Login: React.FC = () => {
         <div></div>
       </div>
       <div className="et-flex-item">
-        <img src={imgSignIn} width={200} />
+        <img src={imgSignIn} alt="Google Sign in" width={200} />
       </div>
       <div className="et-flex-item">
-        <a> Forget Password ?</a>
+        <button type="button" className="btn btn-link">
+          {" "}
+          Forget Password ?
+        </button>
       </div>
       <div className="et-flex-item">
         <div>------------------------------</div>
       </div>
-      <div className="et-flex-item">Dont Have an account ? Sign In</div> <br />
+      <div className="et-flex-item">
+        Dont Have an account ?{" "}
+        <button
+          type="button"
+          className="btn btn-link"
+          onClick={() => onToggle("signup")}
+        >
+          Sign Up
+        </button>
+      </div>{" "}
+      <br />
     </div>
   );
 };

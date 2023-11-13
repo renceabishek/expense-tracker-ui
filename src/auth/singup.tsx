@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import imgSignup from "../assets/image/signup.png";
 
-const Signup: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+interface SignUpProps {
+  onToggle: (value: string) => void;
+}
+
+const Signup: React.FC<SignUpProps> = ({ onToggle }) => {
+  const [email, setEmail] = useState("");
 
   const handleSignup = () => {
     // Implement signup logic here (e.g., make an API request to create a new user)
@@ -11,36 +14,49 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Signup</h2>
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+    <div className="et-flex et-flex-item et-flex-col et-align-items-center gap-10">
+      {/* <h2>Signup</h2> */}
+      <form className="et-flex et-flex-item  et-flex-col et-justify-content-space-between gap-10">
+        <div className="form-group et-flex-item">
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Email"
+            autoComplete="off"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <button
+          type="button"
+          className="btn btn-primary et-flex-item"
+          onClick={handleSignup}
+        >
+          Sign Up
+        </button>
+      </form>
+      <div className="et-flex-item">
+        <div></div>
+        <div>OR</div>
+        <div></div>
       </div>
-      <div>
-        <label>Password:</label>
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+      <div className="et-flex-item">
+        <img src={imgSignup} alt="Google Sign up" width={200} />
       </div>
-      <div>
-        <label>Confirm Password:</label>
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
+      <div className="et-flex-item">
+        <div>------------------------------</div>
       </div>
-      <button onClick={handleSignup}>Signup</button>
+      <div className="et-flex-item">
+        Do you have an account ?{" "}
+        <button
+          type="button"
+          className="btn btn-link"
+          onClick={() => onToggle("login")}
+        >
+          Log In
+        </button>
+      </div>{" "}
+      <br />
     </div>
   );
 };
