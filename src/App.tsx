@@ -1,25 +1,18 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.scss";
+import AuthWrapper from "./auth/AuthWrapper";
+import Home from "./home/home";
+import axios from "axios";
 
 function App() {
+  axios.defaults.baseURL = "https://jsonplaceholder.typicode.com/";
+  const [auth, setAuth] = useState("login");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button className="btn btn-danger">BootStrap Test Button</button>
-      </header>
+    <div className="et-flex et-flex-col min-height-100">
+      <div className="et-flex-item">
+        {auth === "login" ? <AuthWrapper /> : <Home />}
+      </div>
     </div>
   );
 }

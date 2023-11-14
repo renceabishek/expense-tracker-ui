@@ -1,0 +1,136 @@
+.et-flex {
+  display: flex;
+}
+
+.et-flex-item {
+  flex: auto;
+}
+
+//direction
+.et-flex-row {
+  flex-direction: row;
+}
+.et-flex-col {
+  flex-direction: column;
+}
+.et-flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.et-flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+// wrap
+.et-flex-wrap {
+  flex-wrap: wrap;
+}
+.et-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.et-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+// justify-content
+.et-justify-content-center {
+  justify-content: center;
+}
+
+.et-justify-content-flex-start {
+  justify-content: flex-start;
+}
+
+.et-justify-content-flex-end {
+  justify-content: flex-end;
+}
+
+.et-justify-content-space-between {
+  justify-content: space-between;
+}
+
+.et-justify-content-space-around {
+  justify-content: space-around;
+}
+// Align-Items
+.et-align-items-center {
+  align-items: center;
+}
+.et-align-items-flex-start {
+  align-items: flex-start;
+}
+.et-align-items-flex-end {
+  align-items: flex-end;
+}
+.et-align-items-baseline {
+  align-items: baseline;
+}
+.et-align-items-stretch {
+  align-items: stretch;
+}
+
+@media screen and (min-width: 1rem) {
+  // 480px
+  .et-sm-flex-dir-col {
+    flex-direction: column;
+  }
+  .et-sm-flex-dir-row {
+    flex-direction: row;
+  }
+
+  // Justify-Content
+  .et-sm-justify-content-center {
+    justify-content: center;
+  }
+
+  .et-sm-justify-content-flex-start {
+    justify-content: flex-start;
+  }
+
+  .et-sm-justify-content-flex-end {
+    justify-content: flex-end;
+  }
+
+  .et-sm-justify-content-space-between {
+    justify-content: space-between;
+  }
+
+  .et-sm-justify-content-space-around {
+    justify-content: space-around;
+  }
+  // Align-Items
+  .et-sm-align-items-center {
+    align-items: center;
+  }
+  .et-sm-align-items-flex-start {
+    align-items: flex-start;
+  }
+  .et-sm-align-items-flex-end {
+    align-items: flex-end;
+  }
+  .et-sm-align-items-baseline {
+    align-items: baseline;
+  }
+  .et-sm-align-items-stretch {
+    align-items: stretch;
+  }
+}
+
+@media screen and (min-width: 30rem) {
+  //480px
+  .et-md-flex-dir-row {
+    flex-direction: row;
+  }
+  .et-md-flex-dir-col {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  // 1024px
+  .et-xl-flex-dir-row {
+    flex-direction: row;
+  }
+  .et-xl-flex-dir-col {
+    flex-direction: column;
+  }
+}
