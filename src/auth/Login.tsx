@@ -1,18 +1,31 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.scss";
+import axios from "axios";
 import imgSignIn from "../assets/image/dummyGsignin.png";
 
 interface LoginProps {
-  onToggle: (value: string) => void;
+  onToggle: (componentName: string) => void;
 }
 
 const Login: React.FC<LoginProps> = ({ onToggle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleLogin = () => {
-    // Implement login logic here (e.g., make an API request to authenticate user)
-    // You should add validation and error handling as needed.
+  const handleLogin = async () => {
+    console.log("--email " + email);
+    await axios
+      .post("auth/login", {
+        email: email,
+        password: password,
+      })
+      .then((data) => {
+        navigate("/home");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

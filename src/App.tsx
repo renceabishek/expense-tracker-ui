@@ -5,7 +5,7 @@ import Home from "./home/home";
 import axios from "axios";
 
 function App() {
-  axios.defaults.baseURL = "https://jsonplaceholder.typicode.com/";
+  axios.defaults.baseURL = "http://localhost:8080/";
   const [auth, setAuth] = useState("login");
 
   return (

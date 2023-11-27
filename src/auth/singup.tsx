@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import imgSignup from "../assets/image/signup.png";
 import axios from "axios";
-import Msg from "../constant";
+import AuthResponse from "../model/AuthResponse";
 
 interface SignUpProps {
-  onToggle: (value: string, isSuccess: boolean, info: string) => void;
+  onToggle: (
+    componentName: string,
+    isSuccess?: boolean,
+    code?: string,
+    value?: AuthResponse
+  ) => void;
 }
 
 const Signup: React.FC<SignUpProps> = ({ onToggle }) => {
@@ -15,14 +20,24 @@ const Signup: React.FC<SignUpProps> = ({ onToggle }) => {
     // You should add validation and error handling as needed.
 
     console.log("--email " + email);
+    let obj: AuthResponse = {
+      emailid: email,
+    };
     await axios
-      .get("posts?_limit=10")
+      .post("signup/registerEmail", {
+        emailid: email,
+      })
       .then((response) => {
-        console.log(response.data);
-        onToggle("message", true, Msg.signup);
+        console.log(response.data.message);
+        if (response.data.code === "ET-001") {
+          onToggle("message", true, response.data.code, obj);
+        } else {
+          onToggle("message", false, response.data.code, obj);
+        }
       })
       .catch((err) => {
         console.log(err);
+        onToggle("message", false, err.data.code, obj);
       });
   };
 
@@ -45,7 +60,7 @@ const Signup: React.FC<SignUpProps> = ({ onToggle }) => {
           className="btn btn-primary et-flex-item"
           onClick={handleSignup}
         >
-          Sign Up
+          Continue
         </button>
       </form>
       <div className="et-flex-item">
@@ -64,7 +79,7 @@ const Signup: React.FC<SignUpProps> = ({ onToggle }) => {
         <button
           type="button"
           className="btn btn-link"
-          onClick={() => onToggle("login", true, "")}
+          onClick={() => onToggle("login")}
         >
           Log In
         </button>
