@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="et-flex et-flex-col min-height-100">
       <div className="et-flex-item">
-      <ExpenseWrapperComponent />
+        {auth === "login" ? <AuthWrapper /> : <ExpenseWrapperComponent />}
       </div>
     </div>
   );
