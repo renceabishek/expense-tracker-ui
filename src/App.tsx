@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.scss";
 import AuthWrapper from "./auth/AuthWrapper";
-import Home from "./home/home";
+import ExpenseWrapperComponent from "./ExpenseWrapperComponent/ExpenseWrapperComponent";
 import axios from "axios";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="et-flex et-flex-col min-height-100">
       <div className="et-flex-item">
-      <Home />
+      <ExpenseWrapperComponent />
       </div>
     </div>
   );

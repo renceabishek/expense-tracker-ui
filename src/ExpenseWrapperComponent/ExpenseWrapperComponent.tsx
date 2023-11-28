@@ -4,11 +4,13 @@ import { Route, Routes } from "react-router-dom";
 import Expenses from "../expenses/expenses";
 import Admin from "../admin/admin";
 import About from "../about/about";
+import Footer from "./footer";
+import "./expenseWrapperComponent.scss"
 
 
-function Home() {
+function ExpenseWrapperComponent() {
   return <div><Navbar/>
-  
+  <div className="ExpenseContainer">
   <Routes>
   <Route path="/expenses" element={<Expenses/>}></Route>
   <Route path="/admin" element={<Admin/>}></Route>
@@ -16,8 +18,9 @@ function Home() {
 
 
   </Routes>
-  <h4> HOME OF THE APP</h4>
+  </div>
+  <Footer/>
   </div>;
 }
 
-export default Home;
+export default ExpenseWrapperComponent;
